@@ -105,7 +105,40 @@ gitlab-agent-568bbbc67-74fqb   1/1     Running   0          6m23s
 kubectl config use-context longpt233/deploy-customer:customer-agent
 ```
 
+- trên agent gitlab 
 
+```
+$ kubectl get all -o wide
+NAME                                      READY   STATUS              RESTARTS   AGE   IP       NODE                                NOMINATED NODE   READINESS GATES
+pod/customer-meta-name-646bfbb688-zbpmw   0/1     ContainerCreating   0          1s    <none>   aks-agentpool-16546334-vmss000000   <none>           <none>
+NAME                   TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE   SELECTOR
+service/kubernetes     ClusterIP      10.0.0.1       <none>        443/TCP          33m   <none>
+service/lb-meta-name   LoadBalancer   10.0.145.234   <pending>     2025:32157/TCP   1s    app=customer-labels
+NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS                IMAGES                                   SELECTOR
+deployment.apps/customer-meta-name   0/1     1            0           2s    customer-container-name   [MASKED]/deploy-customer-image:latest   app=customer-labels
+NAME                                            DESIRED   CURRENT   READY   AGE   CONTAINERS                IMAGES                                   SELECTOR
+replicaset.apps/customer-meta-name-646bfbb688   1         1         0       3s    customer-container-name   [MASKED]/deploy-customer-image:latest   app=customer-labels,pod-template-hash=646bfbb688
+```
+
+- tren cụm của azuze 
+
+
+```
+Every 1.0s: kubectl get all -o wide                                                                                                                                                    cc-c86f53a7-7995dc9c7b-jj6n6: Wed May  4 15:59:46 2022
+
+NAME                                      READY   STATUS    RESTARTS   AGE    IP           NODE                                NOMINATED NODE   READINESS GATES
+pod/customer-meta-name-646bfbb688-zbpmw   1/1     Running   0          2m6s   10.244.0.9   aks-agentpool-16546334-vmss000000   <none>           <none>
+
+NAME                   TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE    SELECTOR
+service/kubernetes     ClusterIP      10.0.0.1       <none>        443/TCP          35m    <none>
+service/lb-meta-name   LoadBalancer   10.0.145.234   20.239.8.53   2025:32157/TCP   2m5s   app=customer-labels
+
+NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE    CONTAINERS                IMAGES                                   SELECTOR
+deployment.apps/customer-meta-name   1/1     1            1           2m6s   customer-container-name   longpt233/deploy-customer-image:latest   app=customer-labels
+
+NAME                                            DESIRED   CURRENT   READY   AGE    CONTAINERS                IMAGES                                   SELECTOR
+replicaset.apps/customer-meta-name-646bfbb688   1         1         1       2m6s   customer-container-name   longpt233/deploy-customer-image:latest   app=customer-labels,pod-template-hash=646bfbb688
+```
 
 
 
