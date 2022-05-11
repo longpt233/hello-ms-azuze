@@ -1,3 +1,7 @@
+# link gitlab 
+
+- https://gitlab.com/longpt233/deploy-customer
+
 # tạo cụm 
 
 - chú ý node pools để 1 thôi k tốn tiền 
@@ -43,6 +47,7 @@ helm upgrade --install gitlab-agent gitlab/gitlab-agent \
     --set config.kasAddress=wss://kas.gitlab.com
 ```
 
+- lưu ý cái tên ở đây sẽ dùng để use context ở trong code 
 - kết quả
 
 ![](/asset/connect-new.png)
@@ -124,8 +129,6 @@ replicaset.apps/customer-meta-name-646bfbb688   1         1         0       3s  
 
 
 ```
-Every 1.0s: kubectl get all -o wide                                                                                                                                                    cc-c86f53a7-7995dc9c7b-jj6n6: Wed May  4 15:59:46 2022
-
 NAME                                      READY   STATUS    RESTARTS   AGE    IP           NODE                                NOMINATED NODE   READINESS GATES
 pod/customer-meta-name-646bfbb688-zbpmw   1/1     Running   0          2m6s   10.244.0.9   aks-agentpool-16546334-vmss000000   <none>           <none>
 
