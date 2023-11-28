@@ -10,18 +10,18 @@
 2. nối pineline 
 - chỉnh split data 0.8
 - trỉnh label colume train model 
-[](./asset/pineline.png)
+![](./asset/pineline.png)
 
 3. submit
 
-[](./asset/submit.png)
+![](./asset/submit.png)
 
 - kết quả: job -> experient
 
-[](./asset/ketqua.png)
+![](./asset/ketqua.png)
 
 - metric 
-[](./asset/metric.png)
+![](./asset/metric.png)
 
 4. publish
 
